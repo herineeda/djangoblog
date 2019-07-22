@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load staticfiles %}
+
+<main role="main">
+
+  <section class="jumbotron text-center">
+    <div class="container">
+      <h1 class="jumbotron-heading">My Portfolio</h1>
+      <p class="lead text-muted">Express yourself.</p>
+      <p>
+        <a href="#" class="btn btn-primary my-2">Back to home</a>
+        <a href="#" class="btn btn-secondary my-2">Write</a>
+      </p>
+    </div>
+  </section>
+
+  <div class="album py-5 bg-light">
+    <div class="container">
+
+      <div class="row">
+
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+            <img src="{% static 'ponyo.png' %}" alt=""width="100%" height="225">
+            <div class="card-body">
+              <p class="card-text">포뇨포뇨포뇨아기물고기</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                </div>
+                <small class="text-muted">9 mins</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {% for portfolio in portfolios.all %}
+          <div class="col-md-4">
+           <div class="card mb-4 shadow-sm">
+            <img src="{{portfolio.image.url}}" height="225">
+            <div class="card-body">
+              <p class="card-text"> {{portfolio.description}} </p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                </div>
+                <small class="text-muted">9 mins</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+        
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+</main>
+
+{% endblock %}
